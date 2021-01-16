@@ -11,7 +11,7 @@ Note: initially I planned to use http://ifconfig.co service, but it seems they h
 You should run this code on a decent machine with at least 16 GB of RAM (8 GB might suffice but 4 GB is definitely not enough). Modern CPU is also helpful here :)
 
 You should have installed locally recent versions (as per January 2021) of:
-- Virtualbox (as a Vagrant provider)
+- Virtualbox (mine is 6.1 on Win10)
 - Vagrant (mine is 2.2.14 on Win10)
 - kubectl (mine is 1.20.0 on Win10)
 - Helm (mine is 3.5.0 on Win10)
@@ -21,7 +21,7 @@ You should have installed locally recent versions (as per January 2021) of:
 1. cd to the cloned repository directory root folder
 2. run vagrant `vagrant up`
 3. install local helm chart `helm install myrevproxy myrevproxy/ --values myrevproxy/values.yaml --kubeconfig shared/kubeconfig`
-4. You can observe pods creation using command `kubectl get pods --kubeconfig shared/kubeconfig --watch`.
+4. You can observe pods creation using command `kubectl get pods --kubeconfig shared/kubeconfig --watch`
 5. Once pods are runing, curl local machine IP with its NodePort exposed on port 32222. You can use local IP of any of the master/nodes, so any of these three commands should work
 - master `curl 192.168.21.100:32222`
 - node1  `curl 192.168.21.101:32222`

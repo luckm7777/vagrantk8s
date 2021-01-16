@@ -12,7 +12,7 @@ Vagrant.configure("2") do |config|
     subconfig.vm.provision "shell", path: "scripts/install-all.sh"
     subconfig.vm.provision "shell", path: "scripts/install-master.sh"
     subconfig.vm.provider :virtualbox do |vb|
-      vb.customize ["modifyvm", :id, "--memory", "1800"]
+      vb.customize ["modifyvm", :id, "--memory", "2000"]
       vb.customize ["modifyvm", :id, "--cpus", "2"]
     end
   end
@@ -25,7 +25,7 @@ Vagrant.configure("2") do |config|
       subconfig.vm.provision "shell", path: "scripts/install-all.sh"
       subconfig.vm.provision "shell", path: "scripts/install-node.sh"
       subconfig.vm.provider :virtualbox do |vb|
-        vb.customize ["modifyvm", :id, "--memory", "1000"]
+        vb.customize ["modifyvm", :id, "--memory", "1500"]
         vb.customize ["modifyvm", :id, "--cpus", "1"]
       end
     end
