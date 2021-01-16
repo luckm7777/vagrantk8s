@@ -3,7 +3,7 @@ NODES_NUM = 2
 
 Vagrant.configure("2") do |config|
   config.vm.provider :virtualbox do |vb|
-    vb.gui = true
+    vb.gui = false
     end
   config.vm.define "master" do |subconfig|
     subconfig.vm.box = BOX_IMG
