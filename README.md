@@ -21,12 +21,15 @@ You should have installed locally recent versions (as per January 2021) of:
 1. cd to the cloned repository directory
 2. run vagrant `vagrant up`
 3. install local helm chart `helm install myrevproxy myrevproxy/ --values myrevproxy/values.yaml --kubeconfig shared/kubeconfig`
-4. curl local machine IP with its NodePort exposed on port 32222. You can use local IP of any of the master/nodes, so any of these three commands should work
-- master `curl 192.168.65.21:32222`
-- node1  `curl 192.168.65.21:32222`
-- node2  `curl 192.168.65.21:32222`
+4. You can observe pods creation using command `kubectl get pods --kubeconfig shared/kubeconfig --watch`.
+5. Once pods are runing, curl local machine IP with its NodePort exposed on port 32222. You can use local IP of any of the master/nodes, so any of these three commands should work
+- master `curl 192.168.21.100:32222`
+- node1  `curl 192.168.21.101:32222`
+- node2  `curl 192.168.21.102:32222`
 
-Note: master's and node IPs are local network IPs and are fixed. In a rare case of these IP adresses being in conflict with some other local service using one of these IPs, there are two places in code requiring IP declaration change: `Vagrantfile` and `scripts/install-master.sh`
+Note: 
+- VMs/k8s setup process on my machine with 16 GB of RAM and 
+- master's and node IPs are local network IPs and are fixed. In a rare case of these IP adresses being in conflict with some other local service using one of these IPs, there are two places in code requiring IP declaration change: `Vagrantfile` and `scripts/install-master.sh`
 
 # 4. Implementation details 
 ## 4.1 Repository structure
